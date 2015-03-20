@@ -176,7 +176,7 @@ def do_vhd_convert(infile, outfile):
         # Pad the last chunk with zeros to simplify writing and
         # to make it easy to detect a partial final chunk that is all zeros
         if len(inchunk) < VHD_BLOCKSIZE:
-            inchunk += zerostring(VHD_BLOCKSIZE-len(inchunk))
+            inchunk += zerostring(VHD_BLOCKSIZE-len(inchunk) + 1)
 
         if len(inchunk) != len(emptyblock):
             print len(inchunk)
